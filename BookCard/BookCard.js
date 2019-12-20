@@ -4,7 +4,10 @@ import './BookCard.css';
 const bookCard = (props) => {
   return (
     <div className='BookCard'>
-      This is a div
+      <h2>Book: {props.title}</h2>
+      <p>Author: {props.author}</p>
+      <p>Pages: {props.pages}</p>
+      <p>Finished Reading: {props.readStatus}</p>
     </div>
   )
 }
