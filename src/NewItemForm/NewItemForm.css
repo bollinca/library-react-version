@@ -1,0 +1,10 @@
+.NewItemForm {
+  border: 2px groove black;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(39, 38, 48, 0.473);
+  position: absolute;
+  margin: -100px auto auto -100px;
+  left: 50%;
+  top: 50%;
+}
