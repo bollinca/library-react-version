@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import BookCard from './BookCard/BookCard.js'
+import BookCard from './BookCard/BookCard'
+import NewItemForm from './NewItemForm/NewItemForm'
 
 class App extends Component {
   state = {
@@ -42,10 +43,11 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Welcome to Your Library!</h1>
-          <div>
-            {booksList}
-          </div>
         </header>
+        <div>
+          <NewItemForm />
+          {booksList}
+        </div>
       </div>
     );
   }
