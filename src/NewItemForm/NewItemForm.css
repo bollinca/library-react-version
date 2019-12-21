@@ -1,10 +1,28 @@
 .NewItemForm {
   border: 2px groove black;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   background-color: rgba(39, 38, 48, 0.473);
   position: absolute;
-  margin: -100px auto auto -100px;
+  margin: -200px auto auto -200px;
   left: 50%;
   top: 50%;
+}
+
+.NewItemForm input[type='text'] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  line-height: 26px;
+  font-size: 20px;
+}
+
+.NewItemForm input[type='radio'] {
+  display: inline-block;
+  margin: 15px auto;
+}
+
+.NewItemForm button {
+  padding: 10px 20px;
+  margin: 20px;
 }
