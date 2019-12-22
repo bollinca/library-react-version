@@ -10,18 +10,25 @@ class App extends Component {
   state = {
     books: [
       {
-        title: "test",
+        title: 'test',
         author: 'Mr. Author',
         pages: '142',
         readStatus: 'True'
       },
       {
-        title: "Test Number 2",
+        title: 'Test Number 2',
         author: 'Mrs. Author',
         pages: '155',
         readStatus: 'True'
       },
-    ]
+    ],
+    formDisplayOn: true,
+    formData: {
+      title: 'Lord Of The Wings',
+      author: 'Wild Bill',
+      pages: '12502',
+      readStatus: 'True'
+    }
   }
 
   render() {
@@ -41,6 +48,18 @@ class App extends Component {
       )
     }
 
+    let bookForm = null;
+
+    if (this.state.formDisplayOn) {
+      bookForm = (
+        <NewItemForm
+          title={this.state.formData.title}
+          author={this.state.formData.author}
+          pages={this.state.formData.pages}
+          readStatus={this.state.formData.readStatus} />
+      )
+    }
+
     return (
       <div className="App">
         <header>
@@ -48,7 +67,7 @@ class App extends Component {
         </header>
         <div>
           <ButtonAddBook />
-          <NewItemForm />
+          {bookForm}
           {booksList}
           <ButtonClearStorage />
         </div>
