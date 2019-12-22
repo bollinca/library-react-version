@@ -30,8 +30,16 @@ const newItemForm = (props) => {
 
       </div>
       <div>
-        <input type='radio' name='read-status' value='read' />Read
-        <input type='radio' name='read-status' value='unread' />Unread
+        <input
+          type='radio'
+          name='read-status'
+          value='read'
+          checked={props.readStatus === true} />Read
+        <input
+          type='radio'
+          name='read-status'
+          value='unread'
+          checked={props.readStatus === false} />Unread
       </div>
       <button>SUBMIT</button>
     </form>
