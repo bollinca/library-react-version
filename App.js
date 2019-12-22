@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import BookCard from './BookCard/BookCard'
-import NewItemForm from './NewItemForm/NewItemForm'
+import BookCard from './BookCard/BookCard';
+import NewItemForm from './NewItemForm/NewItemForm';
+import ButtonAddBook from './ButtonAddBook/ButtonAddBook';
+import ButtonClearStorage from './ButtonClearStorage/ButtonClearStorage';
 
 class App extends Component {
   state = {
@@ -45,8 +47,10 @@ class App extends Component {
           <h1>Welcome to Your Library!</h1>
         </header>
         <div>
+          <ButtonAddBook />
           <NewItemForm />
           {booksList}
+          <ButtonClearStorage />
         </div>
       </div>
     );
