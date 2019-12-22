@@ -1,6 +1,6 @@
 import React from 'react';
 
-const buttonAddBook = ( props ) => {
+const buttonAddBook = (props) => {
   const styleConst = {
     display: 'block',
     fontSize: '20px',
@@ -9,7 +9,10 @@ const buttonAddBook = ( props ) => {
   }
 
   return (
-    <button style={styleConst}>Add Book</button>
+    <button
+      style={styleConst}
+      onClick={props.clicked}
+    >Add Book</button>
   )
 }
 
