@@ -7,25 +7,31 @@ const newItemForm = (props) => {
       <button>EXIT</button>
       <div>
         <input
+          data-type='title'
           className='textInput'
           type='text'
           placeholder='Enter Title'
           value={props.title}
+          onChange={props.changed}
         >
         </input>
 
         <input
+          data-type='author'
           className='textInput'
           type='text'
           placeholder='Enter Author'
           value={props.author}
+          onChange={props.changed}
         ></input>
 
         <input
+          data-type='pages'
           className='textInput'
           type='text'
           placeholder='Enter # of pages'
           value={props.pages}
+          onChange={props.changed}
         ></input>
 
       </div>

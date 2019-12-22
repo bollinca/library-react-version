@@ -28,7 +28,23 @@ class App extends Component {
       pages: '12502',
       readStatus: true
     },
-    formDisplayOn: true,
+    formDisplayOn: false,
+  }
+
+  updateFormData = (event) => {
+    let fieldSelector = event.target.dataset.type
+    const formDataClone = {...this.state.formData}
+    formDataClone[fieldSelector] = event.target.value;
+
+    this.setState({
+      formData: formDataClone
+    })
+  }
+
+  toggleForm = () => {
+    this.setState({
+      formDisplayOn: !this.state.formDisplayOn
+    })
   }
 
   render() {
@@ -56,7 +72,8 @@ class App extends Component {
           title={this.state.formData.title}
           author={this.state.formData.author}
           pages={this.state.formData.pages}
-          readStatus={this.state.formData.readStatus} />
+          readStatus={this.state.formData.readStatus}
+          changed={(e) => this.updateFormData(e)} />
       )
     }
 
@@ -66,7 +83,9 @@ class App extends Component {
           <h1>Welcome to Your Library!</h1>
         </header>
         <div>
-          <ButtonAddBook />
+          <ButtonAddBook
+            clicked={() => this.toggleForm()}
+          />
           {bookForm}
           {booksList}
           <ButtonClearStorage />
