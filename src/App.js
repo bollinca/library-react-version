@@ -22,13 +22,13 @@ class App extends Component {
         readStatus: 'True'
       },
     ],
-    formDisplayOn: true,
     formData: {
       title: 'Lord Of The Wings',
       author: 'Wild Bill',
       pages: '12502',
-      readStatus: 'True'
-    }
+      readStatus: true
+    },
+    formDisplayOn: true,
   }
 
   render() {
