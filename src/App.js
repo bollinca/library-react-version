@@ -73,7 +73,9 @@ class App extends Component {
           author={this.state.formData.author}
           pages={this.state.formData.pages}
           readStatus={this.state.formData.readStatus}
-          changed={(e) => this.updateFormData(e)} />
+          changed={(e) => this.updateFormData(e)}
+          exitClick={this.toggleForm}
+          />
       )
     }
 
