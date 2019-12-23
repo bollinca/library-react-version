@@ -4,7 +4,9 @@ import './NewItemForm.css'
 const newItemForm = (props) => {
   return (
     <form className='NewItemForm'>
-      <button>EXIT</button>
+      <button id='exit-button'
+        onClick={ props.exitClick }
+      >EXIT</button>
       <div>
         <input
           data-type='title'
