@@ -5,8 +5,7 @@ const newItemForm = (props) => {
   return (
     <form className='NewItemForm'>
       <button id='exit-button'
-        onClick={ props.exitClick }
-      >EXIT</button>
+        onClick={props.exitClick}>EXIT</button>
       <div>
         <input
           data-type='title'
@@ -39,15 +38,19 @@ const newItemForm = (props) => {
       </div>
       <div>
         <input
+          data-type='readStatus'
           type='radio'
           name='read-status'
-          value='read'
-          checked={props.readStatus === true} />Read
+          value={true}
+          defaultChecked={props.readStatus === true}
+          onClick={props.changed} />Read
         <input
+          data-type='readStatus'
           type='radio'
           name='read-status'
-          value='unread'
-          checked={props.readStatus === false} />Unread
+          value={false}
+          defaultChecked={props.readStatus === false}
+          onClick={props.changed} />Unread
       </div>
       <button>SUBMIT</button>
     </form>
