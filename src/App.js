@@ -13,13 +13,13 @@ class App extends Component {
         title: 'test',
         author: 'Mr. Author',
         pages: '142',
-        readStatus: 'True'
+        readStatus: true
       },
       {
         title: 'Test Number 2',
         author: 'Mrs. Author',
         pages: '155',
-        readStatus: 'True'
+        readStatus: false
       },
     ],
     formData: {
@@ -33,7 +33,7 @@ class App extends Component {
 
   updateFormData = (event) => {
     let fieldSelector = event.target.dataset.type
-    const formDataClone = {...this.state.formData}
+    const formDataClone = { ...this.state.formData }
     formDataClone[fieldSelector] = event.target.value;
 
     this.setState({
@@ -50,15 +50,17 @@ class App extends Component {
   render() {
 
     let booksList = null;
+    let readStatusDisplay = 'False';
 
     if (this.state.books) {
       booksList = (
         this.state.books.map((book, index) => {
+          this.state.books[index].readStatus === true ? readStatusDisplay = 'True' : readStatusDisplay = 'False';
           return <BookCard
             title={this.state.books[index].title}
             author={this.state.books[index].author}
             pages={this.state.books[index].pages}
-            readStatus={this.state.books[index].readStatus}
+            readStatus={readStatusDisplay}
           />
         })
       )
@@ -75,7 +77,7 @@ class App extends Component {
           readStatus={this.state.formData.readStatus}
           changed={(e) => this.updateFormData(e)}
           exitClick={this.toggleForm}
-          />
+        />
       )
     }
 
