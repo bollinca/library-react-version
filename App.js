@@ -35,6 +35,9 @@ class App extends Component {
     let fieldSelector = event.target.dataset.type
     const formDataClone = { ...this.state.formData }
     formDataClone[fieldSelector] = event.target.value;
+    if (fieldSelector === 'readStatus') {
+      formDataClone[fieldSelector] = (formDataClone[fieldSelector] === 'true')
+    }
 
     this.setState({
       formData: formDataClone
