@@ -52,7 +52,9 @@ const newItemForm = (props) => {
           defaultChecked={props.readStatus === false}
           onClick={props.changed} />Unread
       </div>
-      <button>SUBMIT</button>
+      <button
+        type='button'
+        onClick={props.addBook}>Add</button>
     </form>
   )
 }
