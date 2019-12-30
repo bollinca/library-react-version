@@ -44,6 +44,22 @@ class App extends Component {
     })
   }
 
+  submitClickHandler = () => {
+    let newBooks = [...this.state.books];
+    let newCard = {
+      title: this.state.formData.title,
+      author: this.state.formData.author,
+      pages: this.state.formData.pages,
+      readStatus: this.state.formData.readStatus
+    }
+    newBooks.push(newCard);
+
+    this.setState({
+      books: newBooks
+    })
+    this.toggleForm()
+  }
+
   toggleForm = () => {
     this.setState({
       formDisplayOn: !this.state.formDisplayOn
@@ -80,6 +96,7 @@ class App extends Component {
           readStatus={this.state.formData.readStatus}
           changed={(e) => this.updateFormData(e)}
           exitClick={this.toggleForm}
+          addBook={this.submitClickHandler}
         />
       )
     }
