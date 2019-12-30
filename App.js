@@ -45,6 +45,11 @@ class App extends Component {
   }
 
   submitClickHandler = () => {
+    let previousTitles = this.state.books.map(book => book.title)
+    if (previousTitles.includes(this.state.formData.title)){
+      throw Error('Title already in use, not permitted since name is used as key.')
+    }
+
     let newBooks = [...this.state.books];
     let newCard = {
       title: this.state.formData.title,
@@ -77,6 +82,7 @@ class App extends Component {
           this.state.books[index].readStatus === true ? readStatusDisplay = 'True' : readStatusDisplay = 'False';
           return <BookCard
             title={this.state.books[index].title}
+            key={this.state.books[index].title}
             author={this.state.books[index].author}
             pages={this.state.books[index].pages}
             readStatus={readStatusDisplay}
