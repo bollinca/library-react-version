@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import BookCard from './BookCard/BookCard';
+import BookCards from './BookCards/BookCards';
 import NewItemForm from './NewItemForm/NewItemForm';
 import ButtonAddBook from './ButtonAddBook/ButtonAddBook';
 import ButtonClearStorage from './ButtonClearStorage/ButtonClearStorage';
@@ -46,7 +46,7 @@ class App extends Component {
 
   submitClickHandler = () => {
     let previousTitles = this.state.books.map(book => book.title)
-    if (previousTitles.includes(this.state.formData.title)){
+    if (previousTitles.includes(this.state.formData.title)) {
       throw Error('Title already in use, not permitted since name is used as key.')
     }
 
@@ -72,24 +72,6 @@ class App extends Component {
   }
 
   render() {
-
-    let booksList = null;
-    let readStatusDisplay = 'False';
-
-    if (this.state.books) {
-      booksList = (
-        this.state.books.map((book, index) => {
-          this.state.books[index].readStatus === true ? readStatusDisplay = 'True' : readStatusDisplay = 'False';
-          return <BookCard
-            title={this.state.books[index].title}
-            key={this.state.books[index].title}
-            author={this.state.books[index].author}
-            pages={this.state.books[index].pages}
-            readStatus={readStatusDisplay}
-          />
-        })
-      )
-    }
 
     let bookForm = null;
 
@@ -117,7 +99,8 @@ class App extends Component {
             clicked={() => this.toggleForm()}
           />
           {bookForm}
-          {booksList}
+          <BookCards
+            books={this.state.books} />
           <ButtonClearStorage />
         </div>
       </div>
