@@ -71,6 +71,12 @@ class App extends Component {
     })
   }
 
+  cardDeleteHandler = (index) => {
+    const newBooks = [...this.state.books];
+    newBooks.splice(index, 1);
+    this.setState({books: newBooks})
+  }
+
   render() {
 
     let bookForm = null;
@@ -100,7 +106,8 @@ class App extends Component {
           />
           {bookForm}
           <BookCards
-            books={this.state.books} />
+            books={this.state.books}
+            clickedDelete={this.cardDeleteHandler} />
           <ButtonClearStorage />
         </div>
       </div>
