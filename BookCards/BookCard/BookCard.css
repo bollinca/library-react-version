@@ -1,8 +1,16 @@
 .BookCard {
-  border: 3px solid black;
+  border: 5px double rgb(31, 21, 122);
   width: 400px;
   height: 300px;
   display: inline-block;
   margin: 10px 15px 15px 15px;
   padding: 10px;
+}
+
+.BookCard .deleteButton {
+  background-color: white;
+  border-radius: 5px;
+  border: black solid 2px;
+  float: right;
+  margin: -9px -9px 0px 0px;
 }
