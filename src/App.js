@@ -77,6 +77,11 @@ class App extends Component {
     this.setState({books: newBooks})
   }
 
+  storageObject = {
+    updateStorage: () => window.localStorage.setItem('storedState', JSON.stringify(this.state)),
+    callStorage: () => console.log(localStorage.storedState)
+  }
+
   render() {
 
     let bookForm = null;
@@ -94,6 +99,9 @@ class App extends Component {
         />
       )
     }
+
+    this.storageObject.updateStorage();
+    this.storageObject.callStorage();
 
     return (
       <div className="App">
