@@ -8,7 +8,8 @@ const buttonClearStorage = (props) => {
     padding: '6px',
   }
   return (
-    <button style={styleConst}>Clear Storage</button>
+    <button style={styleConst}
+      onClick={props.clicked}>Clear Storage</button>
   )
 }
 
