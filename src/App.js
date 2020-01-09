@@ -61,7 +61,7 @@ class App extends Component {
 
     this.setState({
       books: newBooks
-    })
+    });
     this.toggleForm()
   }
 
@@ -74,12 +74,20 @@ class App extends Component {
   cardDeleteHandler = (index) => {
     const newBooks = [...this.state.books];
     newBooks.splice(index, 1);
-    this.setState({books: newBooks})
+    this.setState({ books: newBooks });
   }
 
-  storageObject = {
-    updateStorage: () => window.localStorage.setItem('storedState', JSON.stringify(this.state)),
-    callStorage: () => console.log(localStorage.storedState)
+  updateStorage = () => {
+    window.localStorage.setItem('storedState', JSON.stringify(this.state.books))
+  }
+
+  loadStorage = () => {
+    const newBooks = JSON.parse(localStorage.storedState)
+    this.setState({ books: newBooks })
+  }
+
+  clearStorage = () => {
+    console.log("Add Clear Function")
   }
 
   render() {
@@ -100,9 +108,6 @@ class App extends Component {
       )
     }
 
-    this.storageObject.updateStorage();
-    this.storageObject.callStorage();
-
     return (
       <div className="App">
         <header>
@@ -116,7 +121,8 @@ class App extends Component {
           <BookCards
             books={this.state.books}
             clickedDelete={this.cardDeleteHandler} />
-          <ButtonClearStorage />
+          <ButtonClearStorage
+            clicked={this.clearStorage} />
         </div>
       </div>
     );
