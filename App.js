@@ -5,10 +5,25 @@ import BookCards from './BookCards/BookCards';
 import NewItemForm from './NewItemForm/NewItemForm';
 import ButtonAddBook from './ButtonAddBook/ButtonAddBook';
 import ButtonClearStorage from './ButtonClearStorage/ButtonClearStorage';
+import ButtonSaveStorage from './ButtonSaveStorage/ButtonSaveStorage';
 
 class App extends Component {
   state = {
     books: [
+      {
+        title: 'test',
+        author: 'Mr. Author',
+        pages: '142',
+        readStatus: true
+      },
+      {
+        title: 'Test Number 2',
+        author: 'Mrs. Author',
+        pages: '155',
+        readStatus: false
+      },
+    ],
+    defaultBooks: [
       {
         title: 'test',
         author: 'Mr. Author',
@@ -87,7 +102,9 @@ class App extends Component {
   }
 
   clearStorage = () => {
-    console.log("Add Clear Function")
+    if (window.confirm('Are you sure you want to reset all data?') === true) {
+      this.setState({ books: this.state.defaultBooks });
+    }
   }
 
   render() {
@@ -121,8 +138,13 @@ class App extends Component {
           <BookCards
             books={this.state.books}
             clickedDelete={this.cardDeleteHandler} />
-          <ButtonClearStorage
-            clicked={this.clearStorage} />
+          <div id='button-container'>
+            <ButtonClearStorage
+              clicked={this.clearStorage} />
+            <ButtonSaveStorage
+              clicked={this.updateStorage}
+            />
+          </div>
         </div>
       </div>
     );
