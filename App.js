@@ -105,8 +105,17 @@ class App extends Component {
     if (window.confirm('Are you sure you want to reset all data?') === true) {
       this.setState({ books: this.state.defaultBooks });
     }
+    this.updateStorage();
   }
 
+  libraryLoader = () => {
+    if (localStorage.storedState !== JSON.stringify(this.state.defaultBooks)) {
+      const userBookList = JSON.parse(window.localStorage.storedState)
+      this.setState({ books: userBookList })
+      this.updateStorage()
+    }
+    return this.state.books
+  }
   render() {
 
     let bookForm = null;
@@ -136,7 +145,7 @@ class App extends Component {
           />
           {bookForm}
           <BookCards
-            books={this.state.books}
+            books={this.libraryLoader()}
             clickedDelete={this.cardDeleteHandler} />
           <div id='button-container'>
             <ButtonClearStorage
