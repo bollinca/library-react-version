@@ -106,6 +106,7 @@ class App extends Component {
       this.setState({ books: this.state.defaultBooks });
     }
     this.updateStorage();
+    window.location.reload();
   }
 
   libraryLoader = () => {

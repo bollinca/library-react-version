@@ -8,7 +8,6 @@ const bookCards = (props) => {
   return (props.books.map((book, index) => {
     book.readStatus === true ? readStatusDisplay = 'True' : readStatusDisplay = 'False';
     return <BookCard
-      componentWillMount={props.loader}
       clickedDelete={() => props.clickedDelete(index)}
       title={book.title}
       key={book.title}
