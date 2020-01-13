@@ -39,9 +39,9 @@ class App extends Component {
       },
     ],
     formData: {
-      title: 'Lord Of The Wings',
-      author: 'Wild Bill',
-      pages: '12502',
+      title: null,
+      author: null,
+      pages: null,
       readStatus: true
     },
     formDisplayOn: false,
@@ -110,14 +110,6 @@ class App extends Component {
     window.location.reload();
   }
 
-  libraryLoader = () => {
-    if (localStorage.storedState !== JSON.stringify(this.state.defaultBooks)) {
-      const userBookList = JSON.parse(window.localStorage.storedState)
-      this.setState({ books: userBookList })
-      this.updateStorage()
-    }
-    return this.state.books
-  }
   render() {
 
     let bookForm = null;
