@@ -6,6 +6,7 @@ import NewItemForm from './NewItemForm/NewItemForm';
 import ButtonAddBook from './ButtonAddBook/ButtonAddBook';
 import ButtonClearStorage from './ButtonClearStorage/ButtonClearStorage';
 import ButtonSaveStorage from './ButtonSaveStorage/ButtonSaveStorage';
+import ButtonLoadStorage from './ButtonLoadStorage/ButtonLoadStorage';
 
 class App extends Component {
   state = {
@@ -105,7 +106,7 @@ class App extends Component {
     if (window.confirm('Are you sure you want to reset all data?') === true) {
       this.setState({ books: this.state.defaultBooks });
     }
-    this.updateStorage();
+    window.localStorage.setItem('storedState', JSON.stringify(this.state.defaultBooks))
     window.location.reload();
   }
 
@@ -146,14 +147,15 @@ class App extends Component {
           />
           {bookForm}
           <BookCards
-            books={this.libraryLoader()}
+            books={this.state.books}
             clickedDelete={this.cardDeleteHandler} />
           <div id='button-container'>
-            <ButtonClearStorage
-              clicked={this.clearStorage} />
             <ButtonSaveStorage
-              clicked={this.updateStorage}
-            />
+              clicked={() => this.updateStorage()} />
+            <ButtonLoadStorage
+              clicked={() => this.loadStorage()} />
+            <ButtonClearStorage
+              clicked={() => this.clearStorage()} />
           </div>
         </div>
       </div>
