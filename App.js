@@ -3,10 +3,10 @@ import './App.css';
 
 import BookCards from './BookCards/BookCards';
 import NewItemForm from './NewItemForm/NewItemForm';
-import ButtonAddBook from './ButtonAddBook/ButtonAddBook';
-import ButtonClearStorage from './ButtonClearStorage/ButtonClearStorage';
-import ButtonSaveStorage from './ButtonSaveStorage/ButtonSaveStorage';
-import ButtonLoadStorage from './ButtonLoadStorage/ButtonLoadStorage';
+import ButtonAddBook from './Buttons/ButtonAddBook/ButtonAddBook';
+import ButtonClearStorage from './Buttons/ButtonClearStorage/ButtonClearStorage';
+import ButtonSaveStorage from './Buttons/ButtonSaveStorage/ButtonSaveStorage';
+import ButtonLoadStorage from './Buttons/ButtonLoadStorage/ButtonLoadStorage';
 
 class App extends Component {
   state = {
