@@ -1,3 +1,8 @@
+A basic React book tracker, currently using buttons to load, save, and clear localdata. Minimal validation included.
+In the current iteration, localstorage is not loaded on startup, and you must click "Load Storage" on starting the page to pull up your old data.
+Below is the original React README.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
