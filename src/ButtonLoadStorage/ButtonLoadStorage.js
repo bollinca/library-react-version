@@ -1,6 +1,6 @@
 import React from 'react';
 
-const buttonClearStorage = (props) => {
+const buttonLoadStorage = (props) => {
   const styleConst = {
     display: 'inline-block',
     fontSize: '20px',
@@ -9,8 +9,8 @@ const buttonClearStorage = (props) => {
   }
   return (
     <button style={styleConst}
-      onClick={props.clicked}>Clear Storage</button>
+      onClick={props.clicked}>Load Storage</button>
   )
 }
 
-export default buttonClearStorage;
+export default buttonLoadStorage;
